@@ -1,4 +1,4 @@
-import react, { Component } from 'react';
+import { Component } from 'react';
 import {
     Button,
     Modal,
@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
-import { v1 as uuid } from 'uuid';
 
 class ItemModal extends Component {
     state = {
@@ -27,7 +26,7 @@ class ItemModal extends Component {
 
     onChange = (e) => {
         this.setState({
-            [e.target.name]: [e.target.value]
+            [e.target.name]: e.target.value
         });
     }
 
@@ -35,7 +34,6 @@ class ItemModal extends Component {
         e.preventDefault();
 
         const newItem = {
-            id: uuid(),
             name: this.state.name
         }
 
